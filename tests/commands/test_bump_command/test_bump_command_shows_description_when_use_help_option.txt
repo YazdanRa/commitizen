@@ -8,8 +8,8 @@ usage: cz bump [-h] [--dry-run] [--files-only] [--local-version] [--changelog]
                [--changelog-to-stdout] [--git-output-to-stderr] [--retry]
                [--major-version-zero] [--template TEMPLATE] [--extra EXTRA]
                [--file-name FILE_NAME] [--prerelease-offset PRERELEASE_OFFSET]
-               [--version-scheme {pep440,semver,semver2}]
-               [--version-type {pep440,semver,semver2}]
+               [--version-scheme {monotonic,pep440,semver,semver2}]
+               [--version-type {monotonic,pep440,semver,semver2}]
                [--build-metadata BUILD_METADATA] [--get-next]
                [--allow-no-commit]
                [MANUAL_VERSION]
@@ -71,9 +71,9 @@ options:
                         file name of changelog (default: 'CHANGELOG.md')
   --prerelease-offset PRERELEASE_OFFSET
                         start pre-releases with this offset
-  --version-scheme {pep440,semver,semver2}
+  --version-scheme {monotonic,pep440,semver,semver2}
                         choose version scheme
-  --version-type {pep440,semver,semver2}
+  --version-type {monotonic,pep440,semver,semver2}
                         Deprecated, use --version-scheme instead
   --build-metadata BUILD_METADATA
                         Add additional build-metadata to the version-number

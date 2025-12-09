@@ -84,6 +84,7 @@ uv = "commitizen.providers:UvProvider"
 pep440 = "commitizen.version_schemes:Pep440"
 semver = "commitizen.version_schemes:SemVer"
 semver2 = "commitizen.version_schemes:SemVer2"
+monotonic = "commitizen.version_schemes:MonotonicVersion"
 
 [dependency-groups]
 dev = ["ipython>=8.0", "tox>4", "poethepoet>=0.34.0"]

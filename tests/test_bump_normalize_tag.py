@@ -1,6 +1,7 @@
 import pytest
 
 from commitizen.tags import TagRules
+from commitizen.version_schemes import MonotonicVersion
 
 conversion = [
     (("1.2.3", "v$version"), "v1.2.3"),
@@ -21,3 +22,8 @@ def test_create_tag(test_input, expected):
     rules = TagRules()
     new_tag = rules.normalize_tag(version, format)
     assert new_tag == expected
+
+
+def test_create_tag_monotonic_scheme():
+    rules = TagRules(MonotonicVersion)
+    assert rules.normalize_tag("4", "release-$version") == "release-4"

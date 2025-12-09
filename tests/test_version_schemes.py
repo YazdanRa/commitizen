@@ -12,7 +12,12 @@ from pytest_mock import MockerFixture
 
 from commitizen.config.base_config import BaseConfig
 from commitizen.exceptions import VersionSchemeUnknown
-from commitizen.version_schemes import Pep440, SemVer, get_version_scheme
+from commitizen.version_schemes import (
+    MonotonicVersion,
+    Pep440,
+    SemVer,
+    get_version_scheme,
+)
 
 
 def test_default_version_scheme_is_pep440(config: BaseConfig):
@@ -50,6 +55,12 @@ def test_version_scheme_from_config_priority(config: BaseConfig):
     with pytest.warns(DeprecationWarning):
         scheme = get_version_scheme(config.settings)
     assert scheme is Pep440
+
+
+def test_version_scheme_monotonic(config: BaseConfig):
+    config.settings["version_scheme"] = "monotonic"
+    scheme = get_version_scheme(config.settings)
+    assert scheme is MonotonicVersion
 
 
 def test_warn_if_version_protocol_not_implemented(
